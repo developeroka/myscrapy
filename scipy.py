@@ -32,5 +32,5 @@ if __name__ == '__main__':
             event_place = link.a.findChildren()[7].text
             event_datetime = link.a.findChildren()[3].findChildren()[8].text
             event_price = link.a.findChildren()[3].findChildren()[11].text
-            # writer = csv.writer(csv_file)
-            # writer.writerow([event_name, event_price, event_place, event_date, event_time, event_link])
+            writer = csv.writer(csv_file)
+            writer.writerow([event_name, event_price, event_place, event_datetime, event_link])
