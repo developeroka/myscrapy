@@ -1,5 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import csv
+from datetime import datetime
 
 
 class Scipy:
@@ -22,5 +24,10 @@ if __name__ == '__main__':
     quote_page = 'https://evand.com/events?sort=trending'
     page = urlopen(quote_page)
     soup = BeautifulSoup(page, 'html.parser')
-    for link in soup.findAll('div', attrs={'class': 'event-card-main'}):
-        print('https://evand.com' + link.a['href'])
+    with open('evand.csv', 'a') as csv_file:
+        link_count = 0
+        for link in soup.findAll('div', attrs={'class': 'event-card-main'}):
+            event_link = 'https://evand.com' + link.a['href']
+            event_name = link.a.findChildren()[4].text
+            # writer = csv.writer(csv_file)
+            # writer.writerow([event_name, event_price, event_datetime, event_link])
