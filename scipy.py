@@ -30,6 +30,6 @@ if __name__ == '__main__':
             event_link = 'https://evand.com' + link.a['href']
             event_name = link.a.findChildren()[4].text
             event_place = link.a.findChildren()[7].text
-            print(link.div.findChildren()[1])
+            event_datetime = link.a.findChildren()[3].findChildren()[8].text
             # writer = csv.writer(csv_file)
-            # writer.writerow([event_name, event_price, event_place, event_datetime, event_link])
+            # writer.writerow([event_name, event_price, event_place, event_date, event_time, event_link])
